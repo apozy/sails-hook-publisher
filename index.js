@@ -44,6 +44,7 @@ module.exports = function(sails) {
         //to allow job creation using publisher
         create: undefined,
         createJob: undefined,
+        job: undefined,
 
         //expose publisher (kue queue) as a queue
         //that can be used to listen to queue events
@@ -93,6 +94,7 @@ module.exports = function(sails) {
                     //expose job creation api
                     hook.create = publisher.create;
                     hook.createJob = publisher.create;
+                    hook.job = kue.Job;
 
                     //shutdown kue publisher
                     //and wait for time equal to `shutdownDelay` 
